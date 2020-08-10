@@ -1,0 +1,17 @@
+/* 
+  Localization.strings
+  ZhiHuDaily
+
+  Created by JasonEWNL on 8/8/20.
+  
+*/
+
+"home" = "首页";
+"homeDescriptionContent" = "每天三次，每次七分钟。";
+"homeDescriptionSignature" = "——知乎日报";
+
+"topStories" = "热门";
+"stories" = "每日";
+
+"topStoriesWidget" = "热门新闻";
+"topStoriesWidgetDescription" = "获取最新的热门新闻。";

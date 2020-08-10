@@ -1,0 +1,17 @@
+/* 
+  Localization.strings
+  ZhiHuDaily
+
+  Created by JasonEWNL on 8/8/20.
+  
+*/
+
+"home" = "Home";
+"homeDescriptionContent" = "Three times a day, seven minutes each time.";
+"homeDescriptionSignature" = "- ZhiHu Daily";
+
+"topStories" = "Top Stories";
+"stories" = "Stories";
+
+"topStoriesWidget" = "Top Stories";
+"topStoriesWidgetDescription" = "Get the latest top stories.";
