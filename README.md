@@ -2,6 +2,8 @@
 
 ZhiHu Daily is a common start for both amateurs and professionals, and this project is an example to explain WidgetKit introduced in WWDC20.
 
+> This project is associate with [Compose ZhiHu Daily with Widgets in iOS 14](https://jasonewnl.github.io/compose-zhihu-daily-with-widgets-in-ios-14/), a post of prototype, which might be much smoother for step-by-step approach.
+
 ## Features
 
 - Image loading along with other data in widgets;
