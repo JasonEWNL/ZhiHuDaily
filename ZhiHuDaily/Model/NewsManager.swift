@@ -8,7 +8,7 @@
 import Foundation
 
 struct NewsManager {
-    static func newsGet(completion: @escaping (Result<News, Network.Failure>) -> Void) {
+    static func getLatest(completion: @escaping (Result<LatestNews, Network.Failure>) -> Void) {
         Network.fetch("https://news-at.zhihu.com/api/4/news/latest") { result in
             switch result {
             case .success(let (data, response)):
@@ -17,7 +17,7 @@ struct NewsManager {
                     return
                 }
                 
-                guard let news = try? JSONDecoder().decode(News.self, from: data) else {
+                guard let news = try? JSONDecoder().decode(LatestNews.self, from: data) else {
                     completion(.failure(.decodeFailed))
                     return
                 }

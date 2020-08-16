@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var news = News()
+    @State private var news = LatestNews()
     
     private var topStories: [TopStory] { news.topStories }
     private var stories: [Story] { news.stories }
@@ -69,7 +69,7 @@ struct ContentView: View {
     func load() {
         isLoading = true
         
-        NewsManager.newsGet { result in
+        NewsManager.getLatest { result in
             switch result {
             case .success(let news):
                 self.news = news

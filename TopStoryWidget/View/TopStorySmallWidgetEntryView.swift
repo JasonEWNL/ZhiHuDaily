@@ -1,19 +1,19 @@
 //
-//  StorySmallWidgetEntryView.swift
-//  StoryWidgetExtension
+//  TopStorySmallWidgetEntryView.swift
+//  TopStoryWidgetExtension
 //
 //  Created by JasonEWNL on 8/9/20.
 //
 
 import SwiftUI
 
-struct StorySmallWidgetEntryView: View {
-    let entry: StoryEntry
+struct TopStorySmallWidgetEntryView: View {
+    let entry: TopStoryEntry
     
     var body: some View {
-        if let storyPair = entry.storyPairs.randomElement() {
+        if let topStoryPair = entry.topStoryPairs.randomElement() {
             ZStack {
-                storyPair.1
+                topStoryPair.1
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                 
@@ -22,23 +22,23 @@ struct StorySmallWidgetEntryView: View {
                         .frame(maxHeight: .infinity)
                     
                     VStack(alignment: .leading) {
-                        Text(storyPair.0.title)
+                        Text(topStoryPair.0.title)
                             .font(.footnote)
                             .foregroundColor(.white)
                         
-                        Text(storyPair.0.hint)
+                        Text(topStoryPair.0.hint)
                             .font(.caption)
                             .foregroundColor(Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)))
                     }
                     .padding()
                     .background(
-                        Color(storyPair.0.color)
+                        Color(topStoryPair.0.color)
                             .blur(radius: 25)
                             .blendMode(.multiply)
                     )
                 }
             }
-            .widgetURL(storyPair.0.inAppURL)
+            .widgetURL(topStoryPair.0.inAppURL)
         }
     }
 }

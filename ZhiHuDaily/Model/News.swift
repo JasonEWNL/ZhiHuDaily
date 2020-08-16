@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct News: Codable {
+struct LatestNews: Codable {
     let date: String
     let stories: [Story]
     let topStories: [TopStory]

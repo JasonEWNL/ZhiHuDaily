@@ -1,6 +1,6 @@
 //
-//  StoryProvider.swift
-//  StoryWidgetExtension
+//  TopStoryProvider.swift
+//  TopStoryWidgetExtension
 //
 //  Created by JasonEWNL on 8/9/20.
 //
@@ -8,31 +8,31 @@
 import SwiftUI
 import WidgetKit
 
-struct StoryProvider: TimelineProvider {
-    func placeholder(in context: Context) -> StoryEntry {
-        StoryEntry(date: Date(), storyPairs: storyPairs)
+struct TopStoryProvider: TimelineProvider {
+    func placeholder(in context: Context) -> TopStoryEntry {
+        TopStoryEntry(date: Date(), topStoryPairs: topStoryPairs)
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (StoryEntry) -> ()) {
-        let entry = StoryEntry(date: Date(), storyPairs: storyPairs)
+    func getSnapshot(in context: Context, completion: @escaping (TopStoryEntry) -> ()) {
+        let entry = TopStoryEntry(date: Date(), topStoryPairs: topStoryPairs)
         completion(entry)
     }
 
-    func getTimeline(in context: Context, completion: @escaping (Timeline<StoryEntry>) -> ()) {
-        var entries: [StoryEntry] = []
+    func getTimeline(in context: Context, completion: @escaping (Timeline<TopStoryEntry>) -> ()) {
+        var entries: [TopStoryEntry] = []
         
-        NewsManager.newsGet { result in
+        NewsManager.getLatest { result in
             switch result {
             case .success(let news):
                 DispatchQueue.global().async {
                     let semaphore = DispatchSemaphore(value: 0)
                     
-                    var storyPairs = [(TopStory, Image)]()
-                    for story in news.topStories {
-                        Network.batchImage(story.image) { result in
+                    var topStoryPairs = [(TopStory, Image)]()
+                    for topStory in news.topStories {
+                        Network.batchImage(topStory.image) { result in
                             switch result {
                             case .success(let image):
-                                storyPairs.append((story, image))
+                                topStoryPairs.append((topStory, image))
                             case .failure(let error):
                                 print(error)
                             }
@@ -41,7 +41,7 @@ struct StoryProvider: TimelineProvider {
                         semaphore.wait()
                     }
                     
-                    let entry = StoryEntry(date: Date(), storyPairs: storyPairs)
+                    let entry = TopStoryEntry(date: Date(), topStoryPairs: topStoryPairs)
                     entries.append(entry)
                     let timeline = Timeline(entries: entries, policy: .never)
                     DispatchQueue.main.async {
