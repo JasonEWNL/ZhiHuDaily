@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct TopStoryDetailView: View {
-    let story: TopStory
+    let topStory: TopStory
     
     var body: some View {
-        WebView(url: story.url)
-            .navigationBarTitle(story.title, displayMode: .inline)
+        WebView(url: topStory.url)
+            .navigationBarTitle(topStory.title, displayMode: .inline)
             .edgesIgnoringSafeArea(.bottom)
             .edgesIgnoringSafeArea(.horizontal)
     }

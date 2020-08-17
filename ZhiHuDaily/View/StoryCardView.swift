@@ -11,23 +11,26 @@ struct StoryCardView: View {
     let story: Story
     
     var body: some View {
-        VStack {
+        HStack {
             URLImage(
                 URL(string: story.image)!,
                 content: {
                     $0.image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: 120)
                 }
             )
             
-            Text(story.title)
-                .font(.callout)
-                .foregroundColor(.primary)
-            
-            Text(story.hint)
-                .font(.caption)
-                .foregroundColor(.secondary)
+            VStack(alignment: .leading, spacing: 8) {
+                Text(story.title)
+                    .font(.callout)
+                    .foregroundColor(.primary)
+                
+                Text(story.hint)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
         }
     }
 }

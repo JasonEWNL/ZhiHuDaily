@@ -17,6 +17,10 @@
 		0311824C24DF9111008F011E /* TopStoryWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0311823E24DF9110008F011E /* TopStoryWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		0311825124DF9B24008F011E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C0F94F24DEE5AB00140BCD /* News.swift */; };
 		0311825324DF9BC0008F011E /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311825224DF9BC0008F011E /* NewsManager.swift */; };
+		0328630F24E96C6C0013FBA4 /* CalendarSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328630E24E96C6C0013FBA4 /* CalendarSymbolView.swift */; };
+		0328631224E973580013FBA4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328631124E973580013FBA4 /* HomeView.swift */; };
+		0328631424E97EDC0013FBA4 /* PastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328631324E97EDC0013FBA4 /* PastView.swift */; };
+		0328631624E97FB20013FBA4 /* HomeDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0328631524E97FB20013FBA4 /* HomeDescriptionView.swift */; };
 		032991D724DF9E2A00DD4805 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0311825224DF9BC0008F011E /* NewsManager.swift */; };
 		032991D824DF9E3000DD4805 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C0F94D24DEE54A00140BCD /* Network.swift */; };
 		0329921024DFA19600DD4805 /* URLImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032991DA24DFA19500DD4805 /* URLImageService.swift */; };
@@ -155,6 +159,10 @@
 		0311824724DF9111008F011E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0311824924DF9111008F011E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0311825224DF9BC0008F011E /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
+		0328630E24E96C6C0013FBA4 /* CalendarSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSymbolView.swift; sourceTree = "<group>"; };
+		0328631124E973580013FBA4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		0328631324E97EDC0013FBA4 /* PastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastView.swift; sourceTree = "<group>"; };
+		0328631524E97FB20013FBA4 /* HomeDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDescriptionView.swift; sourceTree = "<group>"; };
 		032991DA24DFA19500DD4805 /* URLImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLImageService.swift; sourceTree = "<group>"; };
 		032991DC24DFA19500DD4805 /* FileIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileIndex.swift; sourceTree = "<group>"; };
 		032991DD24DFA19500DD4805 /* RemoteFileCacheService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteFileCacheService.swift; sourceTree = "<group>"; };
@@ -260,6 +268,15 @@
 				0311824924DF9111008F011E /* Info.plist */,
 			);
 			path = TopStoryWidget;
+			sourceTree = "<group>";
+		};
+		0328631024E973360013FBA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0328631124E973580013FBA4 /* HomeView.swift */,
+				0328631324E97EDC0013FBA4 /* PastView.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		032991D924DFA19500DD4805 /* URLImage */ = {
@@ -484,6 +501,7 @@
 			children = (
 				03C0F95124DEE5B200140BCD /* Model */,
 				03C0F95224DEE5BB00140BCD /* View */,
+				0328631024E973360013FBA4 /* Controller */,
 				03C0F95324DEE5C300140BCD /* Utilities */,
 				03C0F8E024DEE4FF00140BCD /* ZhiHuDailyApp.swift */,
 				03C0F8E224DEE4FF00140BCD /* ContentView.swift */,
@@ -516,6 +534,7 @@
 		03C0F95224DEE5BB00140BCD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0328631524E97FB20013FBA4 /* HomeDescriptionView.swift */,
 				03A68B7D24DEF4A600F9724D /* TopStoryCardView.swift */,
 				03A68B7F24DEF4EB00F9724D /* TopStoryDetailView.swift */,
 				0311823624DF8898008F011E /* StoryCardView.swift */,
@@ -528,6 +547,7 @@
 			isa = PBXGroup;
 			children = (
 				032991D924DFA19500DD4805 /* URLImage */,
+				0328630E24E96C6C0013FBA4 /* CalendarSymbolView.swift */,
 				03A68B8124DEF90900F9724D /* RefreshButton.swift */,
 				03A68B7B24DEF31D00F9724D /* WebView.swift */,
 				03A68B7924DEEEF500F9724D /* Localizable.swift */,
@@ -711,6 +731,8 @@
 				0311823924DF88CC008F011E /* StoryDetailView.swift in Sources */,
 				0329925024DFA19600DD4805 /* DownloadProgressWrapper.swift in Sources */,
 				03A68B7E24DEF4A600F9724D /* TopStoryCardView.swift in Sources */,
+				0328631424E97EDC0013FBA4 /* PastView.swift in Sources */,
+				0328630F24E96C6C0013FBA4 /* CalendarSymbolView.swift in Sources */,
 				0329921E24DFA19600DD4805 /* Version.swift in Sources */,
 				0329922A24DFA19600DD4805 /* DefaultPlaceholder.swift in Sources */,
 				03A68B7A24DEEEF500F9724D /* Localizable.swift in Sources */,
@@ -735,6 +757,7 @@
 				0329923E24DFA19600DD4805 /* LoadingState.swift in Sources */,
 				0329923624DFA19600DD4805 /* ImageProcessorClosure.swift in Sources */,
 				0311823724DF8898008F011E /* StoryCardView.swift in Sources */,
+				0328631624E97FB20013FBA4 /* HomeDescriptionView.swift in Sources */,
 				0329922424DFA19600DD4805 /* CoreDataEntityDescription.swift in Sources */,
 				0329921824DFA19600DD4805 /* CGImage+Extensions.swift in Sources */,
 				0329925A24DFA19600DD4805 /* CircleActivityView.swift in Sources */,
@@ -744,6 +767,7 @@
 				03C0F8E124DEE4FF00140BCD /* ZhiHuDailyApp.swift in Sources */,
 				0329924824DFA19600DD4805 /* ImageLoaderContentView.swift in Sources */,
 				0329921C24DFA19600DD4805 /* CacheHelper.swift in Sources */,
+				0328631224E973580013FBA4 /* HomeView.swift in Sources */,
 				0329921624DFA19600DD4805 /* CGContext+Extensions.swift in Sources */,
 				0329924224DFA19600DD4805 /* URLSessionDownloadDelegateWrapper.swift in Sources */,
 				0329923A24DFA19600DD4805 /* ImageProcessorGroup.swift in Sources */,

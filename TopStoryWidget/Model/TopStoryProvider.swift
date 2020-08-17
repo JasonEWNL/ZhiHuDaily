@@ -23,12 +23,12 @@ struct TopStoryProvider: TimelineProvider {
         
         NewsManager.getLatest { result in
             switch result {
-            case .success(let news):
+            case .success(let latestNews):
                 DispatchQueue.global().async {
                     let semaphore = DispatchSemaphore(value: 0)
                     
                     var topStoryPairs = [(TopStory, Image)]()
-                    for topStory in news.topStories {
+                    for topStory in latestNews.topStories {
                         Network.batchImage(topStory.image) { result in
                             switch result {
                             case .success(let image):

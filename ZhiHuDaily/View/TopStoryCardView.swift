@@ -8,26 +8,29 @@
 import SwiftUI
 
 struct TopStoryCardView: View {
-    let story: TopStory
+    let topStory: TopStory
     
     var body: some View {
-        VStack {
+        HStack {
             URLImage(
-                URL(string: story.image)!,
+                URL(string: topStory.image)!,
                 content: {
                     $0.image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .frame(maxHeight: 120)
                 }
             )
             
-            Text(story.title)
-                .font(.callout)
-                .foregroundColor(.primary)
-            
-            Text(story.hint)
-                .font(.caption)
-                .foregroundColor(.secondary)
+            VStack(alignment: .leading, spacing: 8) {
+                Text(topStory.title)
+                    .font(.callout)
+                    .foregroundColor(.primary)
+                
+                Text(topStory.hint)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
         }
     }
 }

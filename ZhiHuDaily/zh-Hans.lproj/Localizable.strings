@@ -13,5 +13,7 @@
 "topStories" = "热门";
 "stories" = "每日";
 
+"past" = "过去";
+
 "topStoriesWidget" = "热门新闻";
 "topStoriesWidgetDescription" = "获取最新的热门新闻。";

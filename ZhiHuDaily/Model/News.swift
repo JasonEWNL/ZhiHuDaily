@@ -24,6 +24,16 @@ struct LatestNews: Codable {
     }
 }
 
+struct DateNews: Codable {
+    let date: String
+    let stories: [Story]
+    
+    init() {
+        self.date = ""
+        self.stories = []
+    }
+}
+
 struct Story: Codable {
     let imageHue, title: String
     let url: String
