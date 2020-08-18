@@ -34,14 +34,20 @@ struct DateNews: Codable {
     }
 }
 
-struct Story: Codable {
+class Story: Codable {
     let imageHue, title: String
     let url: String
     let hint, gaPrefix: String
     let images: [String]
     let type, id: Int
     
-    var inAppURL: URL { URL(string: "zhihudaily://story/\(id)")! }
+    var tab: String?
+    var date: Date?
+    
+    var color: UIColor { hexStringToUIColor(hex: imageHue) }
+    var inAppURL: URL {
+        URL(string: "zhihudaily://\(tab ?? "")/\(date?.format(with: "yyyyMMdd") ?? "")/story/\(id)")!
+    }
     var image: String { images[0] }
 
     enum CodingKeys: String, CodingKey {
@@ -49,6 +55,20 @@ struct Story: Codable {
         case title, url, hint
         case gaPrefix = "ga_prefix"
         case images, type, id
+        case tab
+    }
+    
+    // for preview test
+    init(title: String, hint: String) {
+        self.imageHue = ""
+        self.title = title
+        self.url = ""
+        self.hint = hint
+        self.gaPrefix = ""
+        self.images = []
+        self.type = 0
+        self.id = 0
+        self.tab = ""
     }
     
     init() {
@@ -60,6 +80,7 @@ struct Story: Codable {
         self.images = []
         self.type = 0
         self.id = 0
+        self.tab = ""
     }
 }
 

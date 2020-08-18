@@ -10,7 +10,7 @@ import WidgetKit
 
 @main
 struct TopStoryWidget: Widget {
-    let kind: String = "TopStoryWidget"
+    private let kind: String = "TopStoryWidget"
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: TopStoryProvider()) { entry in

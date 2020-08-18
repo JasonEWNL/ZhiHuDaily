@@ -17,3 +17,6 @@
 
 "topStoriesWidget" = "热门新闻";
 "topStoriesWidgetDescription" = "获取最新的热门新闻。";
+
+"storiesWidget" = "过去新闻";
+"storiesWidgetDescription" = "获取过去新闻。";

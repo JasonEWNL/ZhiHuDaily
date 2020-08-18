@@ -14,4 +14,5 @@ enum Localizable: LocalizedStringKey {
     case past
     
     case topStoriesWidget, topStoriesWidgetDescription
+    case storiesWidget, storiesWidgetDescription
 }

@@ -25,4 +25,5 @@ This project is written at beta 4 of Xcode 12, API changes are normal through th
 > Note: Since Xcode 12 is still in beta, some issues may be fixed in the future.
 
 - Launch screen image may have scaling issue after app is rebuilt from Xcode or appearance is changed between light and dark;
-- Text may display ellipsis even having enough space. 
+- Text may display ellipsis even having enough space;
+- Deep link is invalid for non-default tab from launch due to confusion of `onOpenURL(perform:)` call.

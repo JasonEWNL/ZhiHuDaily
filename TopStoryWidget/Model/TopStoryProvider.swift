@@ -19,7 +19,7 @@ struct TopStoryProvider: TimelineProvider {
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<TopStoryEntry>) -> ()) {
-        var entries: [TopStoryEntry] = []
+        var entries = [TopStoryEntry]()
         
         NewsManager.getLatest { result in
             switch result {

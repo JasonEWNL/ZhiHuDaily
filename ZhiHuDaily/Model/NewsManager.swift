@@ -29,8 +29,9 @@ struct NewsManager {
         }
     }
     
-    static func getDate(date: Date, completion: @escaping (Result<DateNews, Network.Failure>) -> Void) {
-        Network.fetch("https://news-at.zhihu.com/api/4/news/before/\(date.format(with: "yyyyMMdd"))") { result in
+    static func getDate(tab: String, date: Date, completion: @escaping (Result<DateNews, Network.Failure>) -> Void) {
+        let requestDate = date.addingTimeInterval(24 * 60 * 60)
+        Network.fetch("https://news-at.zhihu.com/api/4/news/before/\(requestDate.format(with: "yyyyMMdd"))") { result in
             switch result {
             case .success(let (data, response)):
                 guard response.statusCode == 200 else {
@@ -41,6 +42,11 @@ struct NewsManager {
                 guard let dateNews = try? JSONDecoder().decode(DateNews.self, from: data) else {
                     completion(.failure(.decodeFailed))
                     return
+                }
+                
+                for story in dateNews.stories {
+                    story.tab = tab
+                    story.date = date
                 }
                 
                 completion(.success(dateNews))
@@ -56,5 +62,13 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         return formatter.string(from: self)
+    }
+}
+
+extension String {
+    func createDate(from format: String) -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.date(from: self) ?? Date()
     }
 }

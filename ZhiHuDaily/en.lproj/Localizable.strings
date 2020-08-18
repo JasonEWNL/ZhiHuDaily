@@ -17,3 +17,6 @@
 
 "topStoriesWidget" = "Top Stories";
 "topStoriesWidgetDescription" = "Get the latest top stories.";
+
+"storiesWidget" = "Past Stories";
+"storiesWidgetDescription" = "Get stories in the past.";

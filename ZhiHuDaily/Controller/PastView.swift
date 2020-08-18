@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+// FIXME: fix reloading from widget
+// - [x] from background
+// - [ ] from launch
 struct PastView: View {
-    @State private var selectDate = Date()
-    private var requestDate: Date { selectDate.addingTimeInterval(24 * 60 * 60) }
+    @Binding var selectDate: Date
     @State private var showDate = false
     
     @State private var dateNews = DateNews()
@@ -40,7 +42,9 @@ struct PastView: View {
                 trailing: RefreshButton(isLoading: $isLoading, action: load)
             )
             .onOpenURL { url in
-                select = url
+                load {
+                    select = url
+                }
             }
             .sheet(isPresented: $showDate, onDismiss: load) {
                 DatePicker(
@@ -62,10 +66,28 @@ struct PastView: View {
     func load() {
         isLoading = true
         
-        NewsManager.getDate(date: requestDate) { result in
+        NewsManager.getDate(tab: "past", date: selectDate) { result in
             switch result {
             case .success(let dateNews):
                 self.dateNews = dateNews
+            case .failure(let error):
+                print(error)
+            }
+            
+            isLoading = false
+        }
+    }
+    
+    func load(completion: @escaping () -> Void) {
+        isLoading = true
+        
+        NewsManager.getDate(tab: "past", date: selectDate) { result in
+            switch result {
+            case .success(let dateNews):
+                self.dateNews = dateNews
+                DispatchQueue.main.async {
+                    completion()
+                }
             case .failure(let error):
                 print(error)
             }
@@ -77,6 +99,6 @@ struct PastView: View {
 
 struct PastView_Previews: PreviewProvider {
     static var previews: some View {
-        PastView()
+        PastView(selectDate: .constant(Date()))
     }
 }
